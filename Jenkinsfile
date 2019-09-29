@@ -6,18 +6,13 @@ pipeline {
         }
     }
     stages {
-        stage('Build') { 
-            steps {
-                sh 'mvn -B -DskipTests clean package' 
-            }
-        }
         stage("build & SonarQube analysis") {
             agent any
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
-                sh 'mvn clean package sonar:sonar'
+              withSonarQubeEnv('SonarQube') {
+                sh 'mvn -B -DskipTests clean package sonar:sonar'
               }
             }
-          }
+         }
     }
 }
