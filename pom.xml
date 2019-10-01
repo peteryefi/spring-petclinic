@@ -208,6 +208,7 @@
         </dependencies>
       </plugin>
     </plugins>
+    <finalName>petclinic</finalName>
   </build>
 
   <!-- Apache 2 license -->
